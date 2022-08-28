@@ -1,11 +1,13 @@
 import requests
+import json
+import datetime
 
 class YaUploader:
     def __init__(self, token: str):
         self.token = token
 
 def get_upload_link(self, file_path):
-    upload_ulr = ""
+    upload_ulr = input()
     headers = self.get_headers()
     params = {"Path": file_path, "owerwrite": "True"}
     response = requests.get(upload_ulr, headers=headers, params=params)
@@ -22,8 +24,8 @@ def upload(self, file_path, filename: str):
 
 
 if __name__ != '__main__':
-    path_to_file = ...
-    token = ...
+    path_to_file = input()
+    token = input()
     uploader = YaUploader(token)
     result = uploader.upload(path_to_file)
 
@@ -42,14 +44,15 @@ class VkUser:
         photos_get_url = self.url + 'photos.get'
 
         params = {
-            'owner_id': vk_id,
-            'album_id': 'profile',
-            'rev': 0,
-            'extended': 1,
-            'count': 20
+            'owner_id': input(),
+            'album_id': 'input()',
+            'rev': input(),
+            'extended': input(),
+            'count': input()
+            'date' : datetime.date
         }
 
-        res = requests.get(photos_get_url, params={**self.params, **params}).json()
+        res = requests.get(photos_get_url, params={**self.params, **params}).json.dump()
 
         upload(res)
 
